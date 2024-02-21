@@ -3,7 +3,7 @@ LABEL authors="oliverkirk-sudo"
 
 RUN apk add --update redis
 # 暴露端口
-EXPOSE 7077
+EXPOSE 5000
 WORKDIR /app
 
 COPY go.mod ./
