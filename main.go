@@ -81,7 +81,7 @@ func main() {
 	}
 	var host = os.Getenv("Host")
 	if host == "" {
-		host = strconv.Itoa(env.Env.Host)
+		host = env.Env.Host
 	}
 	router.Run(host + ":" + port)
 }
