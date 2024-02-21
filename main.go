@@ -17,6 +17,7 @@ import (
 	"github.com/bogdanfinn/fhttp"
 	"github.com/gin-gonic/gin"
 	"strconv"
+	"os"
 )
 
 func CORSMiddleware() gin.HandlerFunc {
@@ -74,5 +75,13 @@ func main() {
 	for _, plugin := range plugin_list {
 		plugin.Run(component)
 	}
-	router.Run(env.Env.Host + ":" + strconv.Itoa(env.Env.Port))
+	var port = os.Getenv("PORT")
+	if port == "" {
+		port = strconv.Itoa(env.Env.Port)
+	}
+	var host = os.Getenv("Host")
+	if host == "" {
+		host = strconv.Itoa(env.Env.Host)
+	}
+	router.Run(host + ":" + port)
 }
