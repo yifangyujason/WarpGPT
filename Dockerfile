@@ -2,7 +2,8 @@ FROM golang:1.21-alpine
 LABEL authors="oliverkirk-sudo"
 
 RUN apk add --update redis
-
+# 暴露端口
+EXPOSE 7077
 WORKDIR /app
 
 COPY go.mod ./
