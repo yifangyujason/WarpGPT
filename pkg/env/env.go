@@ -1,6 +1,7 @@
 package env
 
 import (
+	"WarpGPT/pkg/logger"
 	"flag"
 	"github.com/joho/godotenv"
 	"os"
@@ -35,6 +36,7 @@ func init() {
 	flag.Parse()
 	err := godotenv.Load(EnvFile)
 	if err != nil {
+		logger.Log.Error("初始化加载文件报错", err)
 		return
 	}
 	port, err := strconv.Atoi(os.Getenv("port"))
@@ -89,4 +91,5 @@ func init() {
 		CapSolver:       os.Getenv("cap_solver"),
 		CapClientID:     os.Getenv("cap_client_id"),
 	}
+	logger.Log.Info("环境信息为：", Env)
 }
