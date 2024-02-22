@@ -19,7 +19,6 @@ type ENV struct {
 	OpenaiApiHost   string
 	ProxyPoolUrl    string
 	UserAgent       string
-	LogLevel        string
 	RedisAddress    string
 	RedisPasswd     string
 	RedisDB         int
@@ -83,7 +82,6 @@ func init() {
 		OpenaiApiHost:   openaiApiHost,
 		ProxyPoolUrl:    proxyPoolUrl,
 		UserAgent:       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
-		LogLevel:        loglevel,
 		RedisAddress:    redisAddress,
 		RedisPasswd:     os.Getenv("redis_passwd"),
 		RedisDB:         redisDb,
