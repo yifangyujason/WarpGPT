@@ -35,8 +35,7 @@ func init() {
 	flag.Parse()
 	err := godotenv.Load(EnvFile)
 	if err != nil {
-		logger.Log.Error("初始化加载文件报错", err)
-		return
+		logger.Log.Error("不加载文件方式启动", err)
 	}
 	port, err := strconv.Atoi(os.Getenv("port"))
 	if err != nil {
