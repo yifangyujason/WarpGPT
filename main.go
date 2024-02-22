@@ -14,10 +14,8 @@ import (
 	"WarpGPT/pkg/plugins/api/session"
 	"WarpGPT/pkg/plugins/api/unofficialapi"
 	"WarpGPT/pkg/plugins/service/proxypool"
-	"github.com/bogdanfinn/fhttp"
 	"github.com/gin-gonic/gin"
 	"strconv"
-	"os"
 )
 
 func CORSMiddleware() gin.HandlerFunc {
@@ -75,13 +73,5 @@ func main() {
 	for _, plugin := range plugin_list {
 		plugin.Run(component)
 	}
-	var port = os.Getenv("PORT")
-	if port == "" {
-		port = strconv.Itoa(env.Env.Port)
-	}
-	var host = os.Getenv("Host")
-	if host == "" {
-		host = env.Env.Host
-	}
-	router.Run(host + ":" + port)
+	router.Run(env.Env.Host + ":" + strconv.Itoa(env.Env.Port))
 }
