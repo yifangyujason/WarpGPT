@@ -15,6 +15,7 @@ import (
 	"WarpGPT/pkg/plugins/api/unofficialapi"
 	"WarpGPT/pkg/plugins/service/proxypool"
 	"github.com/gin-gonic/gin"
+	"github.com/bogdanfinn/fhttp"
 	"strconv"
 )
 
