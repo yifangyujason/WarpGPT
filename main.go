@@ -1,10 +1,10 @@
 package main
 
 import (
+	"WarpGPT/pkg/logger"
 	"WarpGPT/pkg/db"
 	"WarpGPT/pkg/env"
 	"WarpGPT/pkg/funcaptcha"
-	"WarpGPT/pkg/logger"
 	"WarpGPT/pkg/plugins"
 	"WarpGPT/pkg/plugins/api/arkosetoken"
 	"WarpGPT/pkg/plugins/api/backendapi"
