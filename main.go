@@ -14,8 +14,8 @@ import (
 	"WarpGPT/pkg/plugins/api/session"
 	"WarpGPT/pkg/plugins/api/unofficialapi"
 	"WarpGPT/pkg/plugins/service/proxypool"
-	"github.com/gin-gonic/gin"
 	"github.com/bogdanfinn/fhttp"
+	"github.com/gin-gonic/gin"
 	"strconv"
 )
 
@@ -52,12 +52,12 @@ func main() {
 	router.Use(CORSMiddleware())
 	component := &plugins.Component{
 		Engine: router,
-		Db: db.DB{
-			GetRedisClient: db.GetRedisClient,
-		},
 		Logger: logger.Log,
 		Env:    &env.Env,
 		Auth:   funcaptcha.GetOpenAIArkoseToken,
+		Db: db.DB{
+			GetRedisClient: db.GetRedisClient,
+		},
 	}
 	var plugin_list []plugins.Plugin
 	plugin_list = append(
