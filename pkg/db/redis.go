@@ -8,7 +8,10 @@ import (
 )
 
 func GetRedisClient() (*redis.Client, error) {
-
+	if env.Env.RedisAddress == "" {
+		logger.Log.Info("不启动redis")
+		return nil, nil
+	}
 	redisClient := redis.NewClient(&redis.Options{
 		Addr:           env.Env.RedisAddress,
 		Password:       env.Env.RedisPasswd,
