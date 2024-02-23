@@ -9,7 +9,6 @@ import (
 
 func GetRedisClient() (*redis.Client, error) {
 	logger.Log.Info("RedisAddress为：", env.Env.RedisAddress)
-	logger.Log.Info("env.Env.RedisAddress == ''为：", env.Env.RedisAddress == "")
 	if env.Env.RedisAddress == "" {
 		logger.Log.Info("不启动redis")
 		return nil, nil
