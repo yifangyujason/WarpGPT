@@ -14,9 +14,9 @@ func GetRedisClient() (*redis.Client, error) {
 		return nil, nil
 	}
 	redisClient := redis.NewClient(&redis.Options{
-		Addr:           env.Env.RedisAddress,
-		Password:       env.Env.RedisPasswd,
-		DB:             env.Env.RedisDB,
+		Addr:           env.E.RedisAddress,
+		Password:       env.E.RedisPasswd,
+		DB:             env.E.RedisDB,
 		MaxRetries:     3,
 		MaxActiveConns: 20,
 	})
