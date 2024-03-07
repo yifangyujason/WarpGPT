@@ -88,5 +88,5 @@ func init() {
 		CapSolver:       os.Getenv("cap_solver"),
 		CapClientID:     os.Getenv("cap_client_id"),
 	}
-	logger.Log.Info("环境信息为：", Env)
+	logger.Log.Info("环境信息为：", E)
 }

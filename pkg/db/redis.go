@@ -4,12 +4,11 @@ import (
 	"WarpGPT/pkg/env"
 	"WarpGPT/pkg/logger"
 	"context"
-	"github.com/redis/go-redis/v9"
 )
 
 func GetRedisClient() (*redis.Client, error) {
-	logger.Log.Info("RedisAddress为：", env.Env.RedisAddress)
-	if env.Env.RedisAddress == "" {
+	logger.Log.Info("RedisAddress为：", env.E.RedisAddress)
+	if env.E.RedisAddress == "" {
 		logger.Log.Info("不启动redis")
 		return nil, nil
 	}
