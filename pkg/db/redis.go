@@ -4,6 +4,7 @@ import (
 	"WarpGPT/pkg/env"
 	"WarpGPT/pkg/logger"
 	"context"
+	"github.com/redis/go-redis/v9"
 )
 
 func GetRedisClient() (*redis.Client, error) {
