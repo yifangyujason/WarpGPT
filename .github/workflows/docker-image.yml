@@ -3,7 +3,7 @@ name: Docker build and push
 on:
   push:
     branches:
-      - 'master'
+      - 'release'
 
 env:
   PLATFORMS: ${{ vars.PLATFORMS || 'linux/amd64' }}
@@ -41,7 +41,7 @@ jobs:
           context: .
           platforms: ${{ env.PLATFORMS }}
           push: true
-          tags: ${{ github.actor }}/warpgpt
+          tags: ${{ github.actor }}/warpgpt:release
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
 
@@ -60,6 +60,6 @@ jobs:
           context: .
           platforms: ${{ env.PLATFORMS }}
           push: true
-          tags: ghcr.io/${{ github.actor }}/warpgpt
+          tags: ghcr.io/${{ github.actor }}/warpgpt:release
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
